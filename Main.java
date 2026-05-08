@@ -1,0 +1,12 @@
+
+public class Main {
+    public static void main(String[] args) {
+
+
+        System.out.println((int) 5.9);
+        System.out.println((int) 9.99);
+        System.out.println(5 / 2);
+        System.out.println((double) 5 / 2);
+
+    }
+}
