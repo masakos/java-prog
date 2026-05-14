@@ -1,6 +1,6 @@
 package chapter2;
 
-public class TypeExample {
+public class Lesson2 {
     public static void main(String[] args) {
         // 値いより大きな型に代入
         int e = 100;

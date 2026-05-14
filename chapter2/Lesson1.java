@@ -1,19 +1,19 @@
 package chapter2;
 
-public class ExpressionExample {
+public class Lesson1 {
    public static void main(String[] args) {
 
             // エスケープシーケンスを用いた例
-            System.out.println("Hello, \"masako\""); // ダブルクォーテーションを表示
+            System.out.println("Hello, \"world\""); // ダブルクォーテーションを表示
     
             // 改行を含む文字列の例
-            System.out.println("masako \nsugita"); // 改行を含む文字列
+            System.out.println("Hello, \nworld!"); // 改行を含む文字列
             // テキストブロックを用いた例
             String textBlock = """
-                Hello, "masako"
+                Hello, "world"
                 masako 
                 sugita
-            """;
+                """;
             System.out.println(textBlock); // テキストブロックの内容を表示
     
             // インクリメント演算子
@@ -37,7 +37,7 @@ public class ExpressionExample {
             System.out.println(f); // 100が表示
     
             //  値より小さな型に代入（エラー）
-            int i = 3.2; // コンパイルエラー: doubleからintへの代入はできない
+            // int i = 3.2; // コンパイルエラー: doubleからintへの代入はできない
     
             // 値より小さな型に代入（キャスト）
             long g = 100L;
@@ -47,8 +47,5 @@ public class ExpressionExample {
             int age = (int)3.2;
             System.out.println(age);
     
-            //  異なる型同士の演算
-            double d = 8.5 / 2;
-            long l = 5 +
    } 
 }

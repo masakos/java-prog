@@ -1,6 +1,6 @@
 package chapter2;
 
-public class StatementExample {
+public class Lesson3 {
     public static void main(String[] args) {
         // 命令実行分の例
         System.out.println("Hello, World!");
@@ -21,15 +21,8 @@ public class StatementExample {
         System.out.println("あなたは来年、" + (n + 1) + "歳になりますね。");
 
         // ランダムな数を生成する命令
-        int r = new java.util.Random().nextInt(90);
-        System.out.println("あなたはたぶん、" + r + "歳ですね？");
-
-        // キーボードから入力を受けつける命令
-        System.out.println("あなたの名前を入力してください");
-        String name = new java.util.Scanner(System.in).nextLine();
-        System.out.println("あなたの好きな数字を入力してください");
-        int number = new java.util.Scanner(System.in).nextInt();
-        System.out.println("ようこそ、" + name + "さん。好きな数字は" + number + " なんだね。");
+        int number = new java.util.Random().nextInt(10);
+        System.out.println("今日のラッキーナンバーは" + number + "です！");
 
     }
 

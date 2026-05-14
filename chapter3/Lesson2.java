@@ -1,4 +1,6 @@
-public class Main {
+package chapter3;
+
+public class Lesson2 {
     public static void main(String[] args) {
         int hp = 15; // hit point
 
