@@ -84,9 +84,9 @@ public class Main {
 system.out.println("Hello");
 ```
 
-- 「文字を表示する命令」を呼び出している
-- syste.out.println : 命令の名前
-- "Hello": 引数：命令に渡すデータ
+「文字を表示する命令」を呼び出している
+- `syste.out.println`: 命令の名前
+- `"Hello"`: 引数：命令に渡すデータ
 
 ###  結果を返す命令文
 ```
@@ -97,7 +97,7 @@ system.out.println("Hello");
 int m = Math.max(a, b);
 ```
 
-int m:  結果を受け取る変数
+- `int m`:  結果を受け取る変数
   - 命令を実行し、 返ってきた結果を変数に保存する
 
 ```java
@@ -124,6 +124,8 @@ public class Main {
 }
 ```
 
+- 引数に 10 を指定した場合、0〜9 までの10個の整数の中からランダムに1つ生成する。
+
 ### キーボードからの入力を受け付ける命令
 
 ```java
@@ -140,9 +142,9 @@ public class Main {
 
 
 ## 参考
-- API Specification には、Javaで使える便利な機能や命令の使い方が載っている
 - [https://docs.oracle.com/en/java/javase/](https://docs.oracle.com/en/java/javase/)
-    - JDK25(みたいversionを指定) => API Documentation => java.base => java.util => Scanner などで検索できる
+    - API Specification には、Javaで使える便利な機能や命令の使い方が載っている
+    - JDK25(versionを指定) => API Documentation => java.base => java.util => Scanner などで検索できる
 
 - APIとは
   - 「誰かが作った便利な機能を、決められた方法で使う仕組み」

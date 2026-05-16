@@ -73,8 +73,6 @@ public class Main {
 | `<` | より小さい | `a < b` | aがbより小さければtrue |
 | `>=` | 以上 | `a >= b` | aがb以上ならtrue |
 | `<=` | 以下 | `a <= b` | aがb以下ならtrue |
-| `&&` | かつ（AND） | `a > 0 && a < 10` | 両方の条件がtrueならtrue |
-| `\|\|` | または（OR） | `a == 0 \|\| a == 1` | どちらかがtrueならtrue |
 
 ### 例題
 - 変数：scoreを宣言し、socreが８０以上なら合格と表示し、８０未満なら不合格と表示するプログラムを作成してください。
@@ -121,7 +119,7 @@ public class Main {
 }
 ```
 
-### if-else - if-else文
+### if -else if - else文
 ```java
 if (条件分岐){
   条件成立のときに実行する処理
