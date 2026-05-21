@@ -1,6 +1,6 @@
-package chapter3;
+package chapter03;
 
-public class Lesson1 {
+public class Sample1 {
     public static void main(String[] args) {
         boolean tenki = false;
         if (tenki == true) {
@@ -8,5 +8,5 @@ public class Lesson1 {
         } else {
             System.out.println("映画をみます");
         }
-    }    
+    }
 }

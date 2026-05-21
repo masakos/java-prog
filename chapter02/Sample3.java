@@ -1,6 +1,6 @@
-package chapter2;
+package chapter02;
 
-public class Lesson3 {
+public class Sample3 {
     public static void main(String[] args) {
         // 命令実行分の例
         System.out.println("Hello, World!");

@@ -1,6 +1,6 @@
-package chapter3;
+package chapter03;
 
-public class Lesson2 {
+public class Sample2 {
     public static void main(String[] args) {
         int hp = 15; // hit point
 

@@ -1,6 +1,6 @@
-package chapter2;
+package chapter02;
 
-public class Lesson4 {
+public class Sample4 {
     public static void main(String[] args) {
 
         java.util.Scanner scanner = new java.util.Scanner(System.in);
