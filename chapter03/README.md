@@ -44,7 +44,7 @@ E --> F
 => **プログラムの作成は、アルゴリズムをコンピュータが実行できる形で記述すること**
 
 
-## if文
+## 分岐 - if文
 ```
 if (条件式){
   条件成立のときに実行する処理
@@ -173,11 +173,117 @@ if (age >= 18 && age <= 64) {
 
 ## swich文
 
-## 伝統的なswitch文
+```java
+public class Main {
+    public static void main(String[] args) {
+        // 冗長ですっきりしないコード
+        System.out.println("あなたの運勢を占います");
+        int fortune = new java.util.Random().nextInt(4) + 1;
+        if (fortune == 1) {
+            System.out.println("大吉");
+        } else if (fortune == 2) {
+            System.out.println("中吉");
+        } else if (fortune == 3) {
+            System.out.println("吉");
+        } else {
+            System.out.println("凶");
+        }
 
+        //switch文を使うとすっきりします!
+        System.out.println("あなたの運勢を占います");
+        fortune = new java.util.Random().nextInt(4) + 1;
+        switch (fortune) {
+            case 1-> {
+                System.out.println("大吉");
+            }
+            case 2-> {                              
+                System.out.println("中吉");
+            }
+            case 3-> {
+                System.out.println("吉");
+            }
+            default -> {   
+                System.out.println("凶");   
+            }
+        }
+
+    }
+}
+```
+
+#### switchの基本構文
+```java
+switch (条件値){
+    case 値1 -> {
+        処理1
+    }
+    case 値2 -> {
+        処理2
+    }
+     ..省略..
+    default -> {
+        処理X
+    }
+}
+```
+
+**switch文に書き換えられる条件**
+- 条件①：等価比較（==）であること
+    - 〇（書き換え可）： `if (x == 1)` や `if (x.equals("A"))` のような「同じかどうか」の比較。
+    - ×（書き換え不可）： `if (x > 10)` や `if (x <= 0)` などの大小比較（不等号）、および `if (x != 5)` などの否定文。
+
+- 条件②：比較対象が「1つの同じ変数」であること
+  - ×（書き換え不可） 
+    ```java
+    if (score >= 80 && age < 20) { ... } // 複数の変数が登場するのでNG
+    ```
+
+- 条件③：変数のデータ型が switch 対応していること
+    - **使える型（〇）：**
+        *   整数型（`int`, `byte`, `short`, `char`） ※`long` は使えません
+        *   ラッパークラス（`Integer` など）
+        *   文字列型（`String`） ※Java 7以降
+        *   列挙型（`enum`）
+    - **使えない型（×）：** 小数点（`double`, `float`）、真偽値（`boolean`）
+
+
+## 伝統的なswitch文の例
+[chapter03/Sample5.java](Sample05.java)
+
+## 問題
+[問題](問題.md)
+
+## 繰り返し
 ## while文
 
+### 基本構文
 
+```java
+while(条件式){
+    処理
+}
+```
 
+```java
+int count = 0;
+while(count < 3) {
+    System.out.println("hello");
+    count++;
+}
+```
 
-## 
+### do-while文
+
+```java
+do {
+    処理
+} while (条件);
+```
+
+- 先に処理を実行
+- 後で条件判定
+
+なので、条件が false でも最低1回は実行される。
+
+```java
+```

@@ -24,3 +24,7 @@
 
 ##  フォントの指定
 - 検索窓に、Editor: Font Family
+
+## packageの宣言でエラーが表示される
+- VS Code を再読み込みまたは
+Ctrl+Shift+P → Java: Clean the Java language server workspace

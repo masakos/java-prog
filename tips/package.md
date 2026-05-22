@@ -7,3 +7,11 @@
 - フォルダ名が chapter01 なら、パッケージ名も chapter01 にする。
 - 大文字・小文字も区別されるので、フォルダ名が Chapter01 なら package Chapter01; にする必要がある。
 - Javaの慣例としては、フォルダ名もパッケージ名もすべて小文字にするのがおすすめです
+
+
+## コンパイルと実行
+```
+javac chapter01/Sample01.java
+java chapter01.Sample01
+
+```
