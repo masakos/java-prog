@@ -2,15 +2,21 @@ package chapter03;
 
 public class Sample2 {
     public static void main(String[] args) {
-        int hp = 15; // hit point
 
-        if (hp >= 80) {
-            System.out.println("元気");
-        } else if (hp >= 30) {
-            System.out.println("弱っている");
-        } else {
-            System.out.println("危険");
+        String drink = "tea";
+
+        switch (drink) {
+            case "coffee" ->
+                System.out.println("コーヒーを選びました");
+
+            case "tea" ->
+                System.out.println("紅茶を選びました");
+
+            case "juice" ->
+                System.out.println("ジュースを選びました");
+
+            default ->
+                System.out.println("メニューにありません");
         }
-
     }
 }

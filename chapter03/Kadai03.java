@@ -4,7 +4,9 @@ public class Kadai03 {
     public static void main(String[] args) {
 
         System.out.println("天気をsunny, cloudy, rainyのいずれかで 入力してください");
+
         String weather = new java.util.Scanner(System.in).nextLine();
+        
         if (weather.equals("sunny")) {
             System.out.println("散歩に行く");
         } else if (weather.equals("cloudy")) {

@@ -188,7 +188,13 @@ public class Main {
         } else {
             System.out.println("凶");
         }
+    }
+}
+```
 
+```java
+public class Main {
+    public static void main(String[] args) {
         //switch文を使うとすっきりします!
         System.out.println("あなたの運勢を占います");
         fortune = new java.util.Random().nextInt(4) + 1;
@@ -206,7 +212,6 @@ public class Main {
                 System.out.println("凶");   
             }
         }
-
     }
 }
 ```
@@ -241,14 +246,12 @@ switch (条件値){
 - 条件③：変数のデータ型が switch 対応していること
     - **使える型（〇）：**
         *   整数型（`int`, `byte`, `short`, `char`） ※`long` は使えません
-        *   ラッパークラス（`Integer` など）
         *   文字列型（`String`） ※Java 7以降
-        *   列挙型（`enum`）
     - **使えない型（×）：** 小数点（`double`, `float`）、真偽値（`boolean`）
 
 
 ## 伝統的なswitch文の例
-[chapter03/Sample5.java](Sample05.java)
+[Sample5.java](Sample05.java)
 
 ## 問題
 [問題](問題.md)
