@@ -1,14 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        int hp = 15; // hit point
-        
-        if (hp >= 80) {
-            System.out.println("元気");
-        } else if (hp >= 30) {
-            System.out.println("弱っている");
-        } else {
-            System.out.println("危険");
-        }
 
+        int total = 0;
+
+        for(int i = 1; i <= 10; i++) {
+            System.out.println("i = " + i);
+            total +=i;
+        }
+        System.out.println("total = " + total);
     }
 }
