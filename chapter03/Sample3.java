@@ -21,5 +21,4 @@ public class Sample3 {
                 break;
         }
     }
-
 }
