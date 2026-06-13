@@ -2,14 +2,11 @@ package chapter04;
 
 public class Sample02 {
     public static void main(String[] args) {
-        // 配列変数の宣言:
-        int[] scores;
-        // 要要の作成と代入
-        scores = new int[5];
 
-        // 配列の長さを調べる
-        int num = scores.length;
-        System.out.println("要素の数：" + num);
+        // (2) 要素数だけ決めるケース(後で値を入れる場合)
+        int[] scores;
+        scores = new int[5];
+        // int[] scores = new int[5];
 
         // 配列は自動的に初期化される
         System.out.println("---初期化していない状態で値を表示する---");
@@ -33,16 +30,13 @@ public class Sample02 {
         scores[3] = 70;
         scores[4] = 60;
 
-        // 配列の要素の値を表示する
-        System.out.println("---代入後の値---");
+        System.out.println("---値を代入後に表示する---");
         System.out.println(scores[0]);
         System.out.println(scores[1]);
         System.out.println(scores[2]);
         System.out.println(scores[3]);
         System.out.println(scores[4]);
 
-        // 配列の初期化から代入までをまとめて書くこともできる
-        int[] scores1 = new int[] { 100, 90, 80, 70, 60 };
-        int[] scores2 = { 100, 90, 80, 70, 60 };
+
     };
 }

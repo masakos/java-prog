@@ -2,15 +2,30 @@ package chapter04;
 
 public class Sample01 {
     public static void main(String[] args) {
-        // テストの平均点を出す
-        int score1001 = 100;
-        int score1002 = 90;
-        int score1003 = 80;
-        int score1004 = 70;
-        int score1005 = 60;
-        
-        int sum = score1001 + score1002 + score1003 + score1004 + score1005;
-        double average = sum / 5.0;
-        System.out.println("平均点は" + average + "点です。");
-    }
+
+        // (1) 宣言時に初期値を設定するケース(要素数も中身も最初から決まっている場合)
+        int [] scores = {60, 70, 80, 90, 100};  // 配列を宣言するときだけ使える特別な書き方
+        // int [] scores = new int[] {60, 70, 80, 90, 100};
+
+        // 配列の要素の値を表示する
+        System.out.println(scores[0]);
+        System.out.println(scores[1]);
+        System.out.println(scores[2]);
+        System.out.println(scores[3]);
+        System.out.println(scores[4]);
+
+
+        double[] values = {0.5, 1.2, 1.8};
+        System.out.println(values[0]);
+        System.out.println(values[1]);
+        System.out.println(values[2]);
+
+        // 配列の長さを調べる
+        int scoresLength = scores.length;
+        System.out.println("要素の数：" + scoresLength);
+
+        int valuesLength = values.length;
+        System.out.println("要素の数：" + valuesLength);
+
+    };
 }
