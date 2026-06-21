@@ -24,6 +24,12 @@ public class Sample09 {
         int[][] scores2 = { { 40, 50, 60 }, { 80, 60, 70 } };
         System.out.println(scores2.length);
         System.out.println(scores2[0].length);
-    
+
+        // 全ての要素の値を表示する
+        for (int i = 0; i < scores2.length; i++) {
+            for (int j = 0; j < scores2[i].length; j++) {
+                System.out.println(scores2[i][j]);
+            }
+        }
     } 
 }
