@@ -1,6 +1,6 @@
 package chapter05.kadai;
 
-public class kadai01 {
+public class Kadai01 {
     public static int getLength(String text){
         int text_num = text.length();
         return text_num;
