@@ -1,7 +1,10 @@
 
 ## なぜファイルを分けるのか？
-- エラーを探す範囲が小さくなる
-- 担当を分けて、同時に開発できる（分業）
+
+- 読みやすくなる
+- 修正しやすくなる
+- 複数人で開発しやすい
+
 
 ## 演習：ソースファイルを分割する
 
@@ -14,7 +17,7 @@
 ### 分割作業
 2つのクラスに分ける。
 
-- **Step1**：`CalcLogic.java` を新しく作り、`tasu` と `hiku` の2つのメソッドを移動する
+- **Step1**：`CalcLogic.java` を新しく作り、`add` と `subtract` の2つのメソッドを移動する
 - **Step2**：`Calc.java` は `main` メソッドだけにする
 
 
@@ -24,9 +27,9 @@ public class Calc {
     public static void main(String[] args) {
         int a = 10;
         int b = 2;
-        int total = CalcLogic.tasu(a, b);   // ← クラス名.メソッド名 で呼ぶ
-        int delta = CalcLogic.hiku(a, b);
-        System.out.println("足すと" + total + "、引くと" + delta);
+        int total = CalcLogic.add(a, b);   // ← クラス名.メソッド名 で呼ぶ
+        int delta = CalcLogic.subtract(a, b);
+        System.out.println("add=" + total + " delta=" + delta);
     }
 }
 ```
@@ -34,16 +37,18 @@ public class Calc {
 ```java
 // CalcLogic.java … 計算のロジック（本体）
 public class CalcLogic {
-    public static int tasu(int a, int b) {
+    public static int add(int a, int b) {
         return a + b;
     }
-    public static int hiku(int a, int b) {
+    public static int subtract(int a, int b) {
         return a - b;
     }
 }
 ```
 
-# コンパイルと実行
+- 別のクラスのメソッドは `クラス名.メソッド名()` で呼ぶ**（`CalcLogic.tasu(a, b)`）
+
+### コンパイルと実行
 
 ```bash
 # コンパイル：ファイルを2つとも指定
@@ -56,54 +61,30 @@ java Calc
 `.class` ファイルが **2つ** できます
 
 
-# なぜ `java Calc` だけでいいの？
+### なぜ `java Calc` だけでいいのか？
 
-- JVM は、指定されたクラスの **`main` メソッド** から
-  プログラムを開始する
-- `main` があるのは `Calc` だけ
+- JVM は、指定されたクラスの **`main` メソッド** から プログラムを開始する
 - `CalcLogic` は、必要なときに JVM が **自動で探す**
 
 
 
-```
-c: &&
-cd c:\Users\ユーザー名\java-prog &&
-cmd /C ""C:\Program Files\Java\jdk-25.0.3\bin\java.exe"
--XX:+ShowCodeDetailsInExceptionMessages
--cp C:\Users\ユーザー名\AppData\Roaming\Code\User\workspaceStorage\89bf745b29e99621bec6b9f25828dc0e\redhat.java\jdt_ws\java-prog_f0c24331\bin
-Main"
-```
-
-- Runボタンを押すと、裏側でコンパイルしてから実行しています
-- そのあとに、以下の流れ（ターミナルにでるログで確認できる）
-```
-- Cドライブへ移動
-- プロジェクトフォルダへ移動
-- Javaを起動
-    - クラスパスを指定
-    - Mainクラスを実行
-```
+## JAR ファイル
+- **JAR（Java Archive）** = 複数の `.class` を 1つにまとめるファイル形式
+- `jar` コマンドで作れる
+    - jar コマンドは、複数の .class ファイルやリソースを 1 つの JAR（Java ARchive）ファイルにまとめるためのコマンド
 
 
-# JAR ファイル
-
-- クラスファイルが100個あったら、配るのが大変！
-- **JAR（Java Archive）** = 複数の `.class` を
-  1つにまとめるファイル形式
-- `jar` コマンドで作れる（ZIP の Java 版）
-    - jar コマンドは、複数の .class ファイルやリソースを 1 つの JAR（Java ARchive）ファイルにまとめるためのコマンドです。
-
-
-### ② パッケージとは何か？
+## パッケージとは何か？
 - クラスを整理する「フォルダ」のようなもの
-- クラスが増えると管理が大変なので、グループごとにまとめる
-- 名前の衝突を防ぐ： 違うパッケージなら、同じ「Sample01」という名前のクラスがあっても区別できる
-- Javaのパッケージ名は、世界中で重複しないように、会社や学校のドメイン名を逆から付けるのが慣例です
+    - クラスが増えると管理が大変なので、グループごとにまとめる
+- 名前の衝突を防ぐ
+    - 違うパッケージなら、同じ「Sample01」という名前のクラスがあっても区別できる
+- Javaのパッケージ名は、世界中で重複しないように、会社や学校のドメイン名を逆から付けるのが慣例になっている
     - 例えば Google は google.com というドメインを持っているので、Javaのパッケージは com.google から始まります。
     `https://github.com/google/gson/tree/main`
 
-### ③ 覚えるキーワード
-- FQCN（完全限定クラス名）：
+## 覚えるキーワード
+- FQCN（Fully Qualified Class Name）：
     - 「パッケージ名 + クラス名」のフルネームのことです（例：chapter02.Sample01）
     - あるクラスから別パッケージのクラスを利用する場合は、FQCNを使う必要がある
 - import（インポート）：
@@ -116,5 +97,5 @@ Main"
 ## GitHub（ギットハブ）とは
 
 - プログラムを保存する **インターネット上の場所**
-- 「いつ・誰が・どこを変えたか」の **歴史が全部残る**
+- コードの変更履歴を管理できる「Git」という仕組みをベースにして、「いつ・誰が・どこを変えたか」の **歴史が全部残る**
 - チーム開発の世界標準ツール
