@@ -70,7 +70,7 @@ c: &&
 cd c:\Users\ユーザー名\java-prog &&
 cmd /C ""C:\Program Files\Java\jdk-25.0.3\bin\java.exe"
 -XX:+ShowCodeDetailsInExceptionMessages
--cp C:\Users\msug25121\AppData\Roaming\Code\User\workspaceStorage\89bf745b29e99621bec6b9f25828dc0e\redhat.java\jdt_ws\java-prog_f0c24331\bin
+-cp C:\Users\ユーザー名\AppData\Roaming\Code\User\workspaceStorage\89bf745b29e99621bec6b9f25828dc0e\redhat.java\jdt_ws\java-prog_f0c24331\bin
 Main"
 ```
 
