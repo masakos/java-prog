@@ -1,6 +1,5 @@
 package chapter05.charenge2;
 
-import java.util.Scanner;
 
 public class Challenge2_1 {
 
