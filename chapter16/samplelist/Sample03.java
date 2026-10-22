@@ -10,7 +10,7 @@ public class Sample03 {
         points.add(80);
         points.add(75);
 
-        for(int i: points){
+        for (int i : points) {
             System.out.println(i);
         }
 
@@ -19,8 +19,7 @@ public class Sample03 {
 
         boolean resulut = points.contains(10);
         System.out.println(resulut);
-        
 
     }
-    
+
 }

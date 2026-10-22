@@ -1,4 +1,4 @@
-package todoapp.sample;
+package apisample;
 
 import java.util.ArrayList;
 import java.util.List;
