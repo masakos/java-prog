@@ -2,37 +2,30 @@ package chapter18.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.PreparedStatement;
 
-// データベースから本を取り出して、ArrayListに入れて一覧表示する
+// データベースにタスクを1件書き込む
 public class Sample02 {
     public static void main(String[] args) throws Exception {
-        ArrayList<Book> books = new ArrayList<Book>();
-
         // ① データベースに接続する
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:chapter18/data/books.db");
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:chapter18/data/todo.db");
 
-        // ② SELECT文を実行する
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT title, price FROM books");
+        // ② INSERT文を準備する（? のところにあとから値が入る）
+        PreparedStatement ps = conn.prepareStatement(
+                "INSERT INTO tasks (title, description, deadline, user_id, category_id) VALUES (?, ?, ?, ?, ?)");
+        ps.setString(1, "Javaの復習");      // 1つ目の ? に タイトル
+        ps.setString(2, "18章を読み直す");   // 2つ目の ? に 説明
+        ps.setString(3, "2026-11-20");      // 3つ目の ? に 期限
+        ps.setInt(4, 1);                    // 4つ目の ? に ユーザーのid
+        ps.setInt(5, 1);                    // 5つ目の ? に カテゴリーのid
 
-        // ③ 結果を1行ずつ取り出す（次の行がなくなると false になる）
-        while (rs.next()) {
-            String title = rs.getString("title");
-            int price = rs.getInt("price");
-            books.add(new Book(title, price));
-        }
+        // ③ 実行する
+        ps.executeUpdate();
 
         // ④ 閉じる
-        rs.close();
-        stmt.close();
+        ps.close();
         conn.close();
 
-        System.out.println("----本の一覧（データベースから取得）----");
-        for (Book book : books) {
-            System.out.println(book.getTitle() + " : " + book.getPrice() + "円");
-        }
+        System.out.println("タスクを1件 登録しました");
     }
 }

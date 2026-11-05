@@ -1,0 +1,5 @@
+{
+    "java.project.referencedLibraries": [
+        "chapter18/lib/**/*.jar"
+    ]
+}
