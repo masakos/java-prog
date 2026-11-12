@@ -2,30 +2,37 @@ package chapter18.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-// データベースにタスクを1件書き込む
 public class Sample02 {
-    public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
         // ① データベースに接続する
         Connection conn = DriverManager.getConnection("jdbc:sqlite:chapter18/data/todo.db");
 
-        // ② INSERT文を準備する（? のところにあとから値が入る）
-        PreparedStatement ps = conn.prepareStatement(
-                "INSERT INTO tasks (title, description, deadline, user_id, category_id) VALUES (?, ?, ?, ?, ?)");
-        ps.setString(1, "Javaの復習");      // 1つ目の ? に タイトル
-        ps.setString(2, "18章を読み直す");   // 2つ目の ? に 説明
-        ps.setString(3, "2026-11-20");      // 3つ目の ? に 期限
-        ps.setInt(4, 1);                    // 4つ目の ? に ユーザーのid
-        ps.setInt(5, 1);                    // 5つ目の ? に カテゴリーのid
+        // ② SELECT文を実行する
+        // Statement: SQL文を文字列として作成し、そのまま実行する方法
+        Statement stmt = conn.createStatement();
 
-        // ③ 実行する
-        ps.executeUpdate();
+        // SQLインジェクションの例 
+        String userId = "' OR '1'='1";
+        String sql = "SELECT * FROM tasks WHERE id = '" + userId + "'";
+
+        ResultSet rs = stmt.executeQuery(sql);
+
+
+        // ③ 結果を1行ずつ取り出す（次の行がなくなると false になる）
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String title = rs.getString("title");
+            String deadline = rs.getString("deadline");
+            System.out.println(id + " : " + title + "（期限 " + deadline + "）");
+        }
 
         // ④ 閉じる
-        ps.close();
+        rs.close();
+        stmt.close();
         conn.close();
-
-        System.out.println("タスクを1件 登録しました");
     }
+    
 }

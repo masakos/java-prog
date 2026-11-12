@@ -12,8 +12,10 @@ public class Sample01 {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:chapter18/data/todo.db");
 
         // ② SELECT文を実行する
+        // Statement: SQL文を文字列として作成し、そのまま実行する方法
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT id, title, deadline FROM tasks");
+        String sql = "SELECT id, title, deadline FROM tasks WHERE id =1";
+        ResultSet rs = stmt.executeQuery(sql);
 
         // ③ 結果を1行ずつ取り出す（次の行がなくなると false になる）
         while (rs.next()) {
